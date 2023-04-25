@@ -1,0 +1,157 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* END OF RESETING CSS */
+
+body {
+    height: 100vh;
+    display: grid;
+    font-family: 'Roboto', sans-serif;
+    grid-template-columns: 600px 1fr;
+    grid-template-rows: 75px 1fr 50px;
+    background-color: #121212;
+    color: rgb(199, 199, 199);
+}
+
+header, footer {
+    grid-column: span 2;
+    background-color: #1b1b1b;
+    color: rgb(177, 177, 177);
+    font-size: xx-large;
+    display: grid;
+    align-content: center;
+    padding-left: 2rem;
+}
+.createBookContainer{
+    align-self: flex-start;
+    margin: 3rem;
+    height: 400px;
+    background-color: #181818;
+    border-radius: 12px;
+    border: solid 2px rgb(70, 70, 70);
+    display: flex;
+    align-items: center;
+}
+form {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    font-variant: small-caps;
+    gap: 2rem;
+    padding: 2rem;
+    font-size: 1.3rem;
+    color: rgb(199, 199, 199);
+}
+form > div {
+    display: flex;
+    justify-content: space-between;
+}
+label {
+    align-self: center;
+    letter-spacing: 2px;
+}
+input {
+    background-color: #3f3f3f;
+    border: none;
+    border-radius: 8px;
+    color: rgb(185, 185, 185);
+    font-size: 1.2rem;
+    padding-left: 10px;
+}
+form > button {
+    font-size: 2rem;
+    align-self: center;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 24px;
+    color: rgb(185, 185, 185);
+    background-color: #3f3f3f;
+    margin-top: 1rem;
+}
+#submit:hover {
+    transform: scale(1.05);
+    background-color: #4e4e4e;
+}
+#displayBooks {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+}
+.book {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    max-height: 150px;
+    padding: 2rem;
+    background-color: #181818;
+    border-radius: 12px;
+    border: solid 2px rgb(70, 70, 70);
+}
+.book > p {
+    padding: 0.5rem;
+}
+.book > button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: rgb(185, 185, 185);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+}
+.title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 8px;
+}
+.invalidInput {
+    background-color: #382929;
+}
