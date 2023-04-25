@@ -98,7 +98,6 @@ function displayBooks() {
         createBookDivs()
         displayInfo()
         addButtons()
-        console.log(myLibrary)
     } else {
         colorInputs()
     }
