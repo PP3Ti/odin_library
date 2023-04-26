@@ -2,7 +2,6 @@ let myLibrary = []
 const bookContainer = document.getElementById('displayBooks')
 const addButton = document.getElementById('submit')
 const form = document.getElementById('addBook')
-let deleteButtons
 let bookId = 0
 
 function Book(author, title, pages, published, read, bookId) {
@@ -63,16 +62,53 @@ function displayInfo() {
         books[i].appendChild(published)
     }
 }
+function toggleColor () {
+    let parentBook = this.parentElement.parentElement.parentElement
+    if (this.checked) {
+        parentBook.classList.add('greenBorder')
+    } else {
+        parentBook.classList.remove('greenBorder')
+    }
+}
+function addReadToggle() {
+    let books = document.getElementsByClassName('book')
+    books = Array.from(books)
+
+    for (let i = 0; i < books.length; i++) {
+        let toggleDiv = document.createElement('div')
+        let switchLabel = document.createElement('label')
+        let checkbox = document.createElement('input')
+        let slider = document.createElement('span')
+
+        slider.classList.add('slider')
+        toggleDiv.classList.add('toggle')
+        switchLabel.classList.add('switch')
+        checkbox.classList.add('checkbox')
+        checkbox.type = 'checkbox'
+        checkbox.setAttribute('id', `checkbox${i}`)
+
+        switchLabel.appendChild(checkbox)
+        switchLabel.appendChild(slider)
+        toggleDiv.appendChild(switchLabel)
+        books[i].appendChild(toggleDiv)
+    }
+    let readToggles = document.getElementsByClassName('checkbox')
+    readToggles = Array.from(readToggles)
+    readToggles.forEach(e => {
+        e.addEventListener('change', toggleColor)
+    });
+}
 function addButtons() {
     let books = document.getElementsByClassName('book')
     books = Array.from(books)
+
     for (let i = 0; i < books.length; i++) {
         let deleteBook = document.createElement('button')
         deleteBook.classList.add('delete')
         deleteBook.textContent = 'X'
         books[i].appendChild(deleteBook)
     }
-    deleteButtons = document.getElementsByClassName('delete')
+    let deleteButtons = document.getElementsByClassName('delete')
     deleteButtons = Array.from(deleteButtons)
     deleteButtons.forEach(e => {
         e.addEventListener('click', removeBook)
@@ -98,6 +134,7 @@ function displayBooks() {
         createBookDivs()
         displayInfo()
         addButtons()
+        addReadToggle()
     } else {
         colorInputs()
     }
