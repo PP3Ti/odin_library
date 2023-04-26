@@ -161,7 +161,7 @@ form > button {
     margin-bottom: 8px;
 }
 .invalidInput {
-    background-color: #382929;
+    background-color: #5a3333;
 }
 .toggle {
     position: absolute;

@@ -117,7 +117,6 @@ function addButtons() {
 function colorInputs() {
     let inputs = document.getElementsByClassName('input')
         inputs = Array.from(inputs)
-        console.log(inputs)
         inputs.forEach(input => {
             if (input.checkValidity() == false) {
                 input.classList.add('invalidInput')
