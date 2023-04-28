@@ -60,14 +60,22 @@ function displayInfo() {
         books[i].appendChild(author)
         books[i].appendChild(pages)
         books[i].appendChild(published)
+
+        if (myLibrary[i].read) {
+            books[i].classList.add('greenBorder')
+        }
     }
 }
 function toggleColor () {
     let parentBook = this.parentElement.parentElement.parentElement
+    let index = parentBook.id
+
     if (this.checked) {
         parentBook.classList.add('greenBorder')
+        myLibrary[index].read = true
     } else {
         parentBook.classList.remove('greenBorder')
+        myLibrary[index].read = false
     }
 }
 function addReadToggle() {
@@ -125,6 +133,16 @@ function colorInputs() {
             }
         });
 }
+function checkSlider() {
+    let books = document.getElementsByClassName('book')
+    books = Array.from(books)
+
+    for (i = 0; i < books.length; i++) {
+        if (myLibrary[i].read) {
+            books[i].querySelector('.toggle > .switch > .checkbox').checked = true
+        }
+    }
+}
 function displayBooks() {
     if (form.checkValidity()) {
         colorInputs()
@@ -134,6 +152,7 @@ function displayBooks() {
         displayInfo()
         addButtons()
         addReadToggle()
+        checkSlider()
     } else {
         colorInputs()
     }
